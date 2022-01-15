@@ -1,0 +1,19 @@
+{% load static %}
+
+<ul>
+  {% for p in posts %}
+  <li>
+    <a href="/post_details/{{p.id}}">{{p.title}}</a><br>
+    {{p.publish_date}}<br>
+    {{p.content}}
+  </li>
+  {% empty %}
+  Nie ma jeszcze żadnych postów!
+  {% endfor %}
+</ul>
+
+<a href="/add_post">Dodaj nowy post</a>
+
+<div>
+  <img src="{% static '/cat.gif' %}" alt="My image">
+</div>

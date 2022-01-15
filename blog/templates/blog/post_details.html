@@ -1,0 +1,14 @@
+<div style='display:flex; flex-direction: column; align-items: center;'>
+  <h1>{{post.title}}</h1>
+  <p>
+    Data publikacji: {{post.publish_date}}
+  </p>
+  <p>
+    {{post.content}}
+  </p>
+  <div>
+    Komentarze:
+  </div>
+  <div>
+    <a href="/add_comment/{{post.id}}">Dodaj nowy komentarz</a>
+  </div>
