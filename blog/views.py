@@ -30,6 +30,19 @@ def post_details(request, post_id):
     return render(request, "blog/post_details.html", context={"post": post})
 
 
+def edit_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    if request.method == "GET":
+        return render(request, "blog/edit_post.html", context={"post": post})
+    elif request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        post.title = title
+        post.content = content
+        post.save()
+        return redirect("edit_post", post_id=post_id)
+
+
 def add_comment(request, post_id):
     post = Post.objects.get(pk=post_id)
     error_message = ""

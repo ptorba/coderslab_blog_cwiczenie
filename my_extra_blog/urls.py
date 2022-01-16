@@ -19,8 +19,9 @@ from blog import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.all_posts),
-    path("add_post/", views.add_post),
-    path("post_details/<int:post_id>", views.post_details),
-    path("add_comment/<int:post_id>", views.add_comment),
+    path("", views.all_posts, name="index"),
+    path("add_post/", views.add_post, name="add_post"),
+    path("post_details/<int:post_id>", views.post_details, name="post_details"),
+    path("add_comment/<int:post_id>", views.add_comment, name="add_comment"),
+    path("edit_comment/<int:post_id>", views.edit_post, name="edit_post"),
 ]

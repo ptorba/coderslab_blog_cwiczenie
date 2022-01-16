@@ -3,16 +3,17 @@
 <ul>
   {% for p in posts %}
   <li>
-    <a href="/post_details/{{p.id}}">{{p.title}}</a><br>
+    <a href="{% url 'post_details' p.id %}">{{p.title}}</a><br>
     {{p.publish_date}}<br>
-    {{p.content}}
+    {{p.content}}<br>
+    <a href="{% url 'edit_post' p.id %}">Edytuj</a>
   </li>
   {% empty %}
   Nie ma jeszcze żadnych postów!
   {% endfor %}
 </ul>
 
-<a href="/add_post">Dodaj nowy post</a>
+<a href="{% url 'add_post' %}">Dodaj nowy post</a>
 
 <div>
   <img src="{% static '/cat.gif' %}" alt="My image">
